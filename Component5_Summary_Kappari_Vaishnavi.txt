@@ -1,0 +1,26 @@
+
+GACHIBOWLI TRAFFIC PREDICTION - DATA MODELLING REPORT
+Student: Kappari Vaishnavi
+Component 5: Data Modelling & Model Evaluation
+
+1. MODEL DEVELOPMENT:
+   - Time-based split: 80% Train (Past) / 20% Validation (Future)
+   - ARIMA(5,1,0) for time series forecasting
+   - LSTM Sequences: 24hr window for sequence handling
+   - Gradient Boosting Trees: Robust & Interpretable
+
+2. EVALUATION:
+   - Metrics: MAE, RMSE, R2
+   - k-Fold CV: 27.14 ± 0.63
+   - Time-Based CV: 27.30 ± 0.23 (Temporal order maintained)
+   - Visuals: Prediction vs Actual, Residual Plot, Error Distribution
+
+3. REFINEMENT:
+   - Diagnosis: Low bias/variance, Systematic error at peak hours
+   - New Features: Lag_1h, Lag_24h, Rolling_3h_Mean, IsPeakAM/PM
+   - Removed: Junction (redundant)
+   - Algorithms: GB (MAE 24.31), RF (25.24), Stacking Ensemble (24.24)
+   - Grid Search Best: lr=0.1, max_depth=4
+   - Final MAE: 24.37, R2: 97.22%
+
+4. FINAL MODEL: Stacking Ensemble (GB + RF + Ridge) - Best Performance
